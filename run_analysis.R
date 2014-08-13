@@ -20,6 +20,13 @@ data <- rbind(test_data_X, train_data_X)
 keep <- grep("(mean\\(\\)|std\\(\\)|Activity)", names(data))
 data <- data[,keep]
 
+#
 # 3. Uses descriptive activity names to name the activities in the data set
+#
+activity_labels <- read.table(paste(data_dir, "activity_labels.txt", sep = ""), col.names = c("Activity", "ActivityName"))
+data <- merge(data, activity_labels)
+data <- data[,(names(data) != "Activity")]
+colnames(data)[colnames(data) == 'ActivityName'] <- 'Activity'
+
 # 4. Appropriately labels the data set with descriptive variable names. 
 # 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
