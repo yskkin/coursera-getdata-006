@@ -14,7 +14,12 @@ test_data_X <- cbind(test_data_X, test_data_y)
 train_data_X <- cbind(train_data_X, train_data_y)
 data <- rbind(test_data_X, train_data_X)
 
+#
 # 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
+#
+keep <- grep("(mean\\(\\)|std\\(\\)|Activity)", names(data))
+data <- data[,keep]
+
 # 3. Uses descriptive activity names to name the activities in the data set
 # 4. Appropriately labels the data set with descriptive variable names. 
 # 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
