@@ -5,19 +5,21 @@ data_dir <- "UCI HAR Dataset/"
 
 features <- read.table(paste(data_dir, "features.txt", sep = ""), stringsAsFactors=FALSE)[,2]
 
-test_data_X <- read.table(paste(data_dir, "test/X_test.txt", sep = ""), col.names = features, check.names = FALSE)
-test_data_y <- read.table(paste(data_dir, "test/y_test.txt", sep = ""), col.names = "Activity")
-train_data_X <- read.table(paste(data_dir, "train/X_train.txt", sep = ""), col.names = features, check.names = FALSE)
-train_data_y <- read.table(paste(data_dir, "train/y_train.txt", sep = ""), col.names = "Activity")
+test.X <- read.table(paste(data_dir, "test/X_test.txt", sep = ""), col.names = features, check.names = FALSE)
+test.y <- read.table(paste(data_dir, "test/y_test.txt", sep = ""), col.names = "Activity")
+test.subject <- read.table(paste(data_dir, "test/subject_test.txt", sep = ""), col.names = "Subject")
+train.X <- read.table(paste(data_dir, "train/X_train.txt", sep = ""), col.names = features, check.names = FALSE)
+train.y <- read.table(paste(data_dir, "train/y_train.txt", sep = ""), col.names = "Activity")
+train.subject <- read.table(paste(data_dir, "train/subject_train.txt", sep = ""), col.names = "Subject")
 
-test_data_X <- cbind(test_data_X, test_data_y)
-train_data_X <- cbind(train_data_X, train_data_y)
-data <- rbind(test_data_X, train_data_X)
+test <- cbind(test.X, test.y, test.subject)
+train <- cbind(train.X, train.y, train.subject)
+data <- rbind(test, train)
 
 #
 # 2. Extracts only the measurements on the mean and standard deviation for each measurement. 
 #
-keep <- grep("(mean\\(\\)|std\\(\\)|Activity)", names(data))
+keep <- grep("(mean\\(\\)|std\\(\\)|Activity|Subject)", names(data))
 data <- data[,keep]
 
 #
