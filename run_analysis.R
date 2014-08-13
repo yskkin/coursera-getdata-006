@@ -30,5 +30,9 @@ data <- merge(data, activity_labels)
 data <- data[,(names(data) != "Activity")]
 colnames(data)[colnames(data) == 'ActivityName'] <- 'Activity'
 
+#
 # 4. Appropriately labels the data set with descriptive variable names. 
+#
+## Already done when setting up date with read.table.
+
 # 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
