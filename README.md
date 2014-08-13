@@ -24,3 +24,15 @@ This repo consists of the following files:
 - run_analysis.R : main R script to generate the tidy data.
 - CodeBook.md : Documentation for the detail of the data.
 - README.md : This readme file explaining the overview of this repo.
+
+Internal of the Script
+----------------------
+1. Read feature name list
+2. Read X, y and subject data for test set and training set, respectively
+3. Give name to columns of the data frame of X using feature name list
+4. Concatenate X, y and subject data for test set and training set, respectively
+5. Concatenate test set and training set
+6. Extract mean and standard deviation features
+7. Overwrite activity id with activity name
+8. Compute the means for each features, grouped by actibity and subject
+
