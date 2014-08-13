@@ -1,3 +1,4 @@
+library(reshape2)
 #
 # 1. Merges the training and the test sets to create one data set.
 #
@@ -36,3 +37,7 @@ colnames(data)[colnames(data) == 'ActivityName'] <- 'Activity'
 ## Already done when setting up date with read.table.
 
 # 5. Creates a second, independent tidy data set with the average of each variable for each activity and each subject. 
+data <- melt(data, id = c("Subject", "Activity"))
+data <- dcast(data, Subject+Activity ~ variable, mean)
+
+write.table(data, file = "tidy_data.txt", row.names = FALSE)
