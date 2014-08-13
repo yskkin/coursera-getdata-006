@@ -32,7 +32,7 @@ each activity and each subject.
 
 All the rest variables are of form `<domain><name>-<stat>()-<direction>`, where
 
-- <domain> : 't' for time domain singal. 'f' for frequency domain signal.
-- <name> : The source of data. E.g. BodyAcc, GravityAcc and so on.
-- <stat> : 'mean' for mean value. 'std' for standard deviation.
-- <direction> : A axis of a sensor. X, Y or Z.
+- `<domain>` : 't' for time domain singal. 'f' for frequency domain signal.
+- `<name>` : The source of data. E.g. BodyAcc, GravityAcc and so on.
+- `<stat>` : 'mean' for mean value. 'std' for standard deviation.
+- `<direction>` : A axis of a sensor. X, Y or Z.
